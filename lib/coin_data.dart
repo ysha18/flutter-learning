@@ -1,3 +1,8 @@
+import 'networkHelper.dart';
+
+const urlBase = 'https://rest.coinapi.io/v1/exchangerate/BTC/';
+const apiKey = '?apikey=09ED88AC-FDD9-492F-BF6D-1154977C8366';
+
 const List<String> currenciesList = [
   'AUD',
   'BRL',
@@ -28,4 +33,11 @@ const List<String> cryptoList = [
   'LTC',
 ];
 
-class CoinData {}
+class CoinData {
+
+  Future getCoinData(String currency) async{
+    NetworkHelper helper = NetworkHelper(urlBase+currency+apiKey);
+    print(urlBase+currency+apiKey);
+    return await helper.getData();
+  }
+}
