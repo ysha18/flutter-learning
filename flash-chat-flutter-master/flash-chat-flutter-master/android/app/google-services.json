@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "737466983770",
+    "project_id": "flash-chat-2d2d3",
+    "storage_bucket": "flash-chat-2d2d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737466983770:android:74b90ba4013390beb3ff63",
+        "android_client_info": {
+          "package_name": "co.shay.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737466983770-82r0h58dmenrbina9u9345i4ihrrqpva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7l6SdYCNQMW4W1y97IG8z7LHyFLDbsHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737466983770-82r0h58dmenrbina9u9345i4ihrrqpva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
