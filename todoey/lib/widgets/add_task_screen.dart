@@ -20,7 +20,7 @@ class AddTaskScreen extends StatelessWidget {
             Text('Add Task',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.lightGreen,
+              color: Colors.blueAccent,
               fontSize: 30.0
             ),),
             const TextField(
@@ -34,7 +34,7 @@ class AddTaskScreen extends StatelessWidget {
               ),
               ),
               autofocus: true,
-              color: Colors.lightGreen,
+              color: Colors.blueAccent,
               onPressed: (){
 
               },
