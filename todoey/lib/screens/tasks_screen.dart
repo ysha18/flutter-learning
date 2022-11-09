@@ -7,11 +7,11 @@ class TasksScreen extends StatelessWidget {
 
   List<TaskTile> tasks = [];
 
-  List<TaskTile> getTasks(){
-    tasks.add(TaskTile(text: "Buy milk",));
-    tasks.add(TaskTile(text: "Get food",));
-    return tasks;
-  }
+  // List<TaskTile> getTasks(){
+  //   tasks.add(TaskTile());
+  //   tasks.add(TaskTile());
+  //   return tasks;
+  // }
 
   @override
   Widget build(BuildContext context) {
