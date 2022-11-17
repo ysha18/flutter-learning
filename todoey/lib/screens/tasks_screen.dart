@@ -1,17 +1,23 @@
+
+
 import 'package:flutter/material.dart';
+import '../model/task.dart';
 import '../widgets/add_task_screen.dart';
-import '../widgets/task_tile.dart';
 import '../widgets/task_list.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
 
-  List<TaskTile> tasks = [];
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
 
-  // List<TaskTile> getTasks(){
-  //   tasks.add(TaskTile());
-  //   tasks.add(TaskTile());
-  //   return tasks;
-  // }
+class _TasksScreenState extends State<TasksScreen> {
+
+  List<Task> tasks = [
+    Task(name: 'Work'),
+    Task(name: 'Play'),
+    Task(name: 'Pray'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,7 @@ class TasksScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top:  60.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 CircleAvatar(
                   child: Icon(
                     Icons.list,
@@ -46,7 +52,7 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '12 tasks',
+                  '${tasks.length} tasks',
                   style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.white,
@@ -62,9 +68,7 @@ class TasksScreen extends StatelessWidget {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
               ),
               padding: EdgeInsets.all(00.0),
-              child: TasksList(
-
-              )
+              child: TasksList(tasks)
             ),
           )
         ],
@@ -73,7 +77,14 @@ class TasksScreen extends StatelessWidget {
         onPressed: (){
           showModalBottomSheet(
               context: context,
-              builder: (context) => AddTaskScreen(),
+              builder: (context) => AddTaskScreen(
+                  (newTaskTile){
+                    setState(() {
+                      tasks.add(Task(name: newTaskTile));
+                    });
+                    Navigator.pop(context);
+                  }
+              ),
               // isScrollControlled: true,true
           );
         },
