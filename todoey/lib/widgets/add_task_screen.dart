@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../model/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
 
@@ -47,7 +50,8 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               color: Colors.blueAccent,
               onPressed: () {
-                addTaskCallback(newTaskTitle);
+                Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
+                Navigator.pop(context);
               },
             )
           ],

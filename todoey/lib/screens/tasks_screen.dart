@@ -1,7 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import '../model/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey/model/task_data.dart';
 import '../widgets/add_task_screen.dart';
 import '../widgets/task_list.dart';
 
@@ -12,12 +13,6 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-
-  List<Task> tasks = [
-    Task(name: 'Work'),
-    Task(name: 'Play'),
-    Task(name: 'Pray'),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +47,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${tasks.length} tasks',
+                  '${Provider.of<TaskData>(context).taskCount} tasks',
                   style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.white,
@@ -68,7 +63,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
               ),
               padding: EdgeInsets.all(00.0),
-              child: TasksList(tasks)
+              child: TasksList()
             ),
           )
         ],
@@ -79,9 +74,9 @@ class _TasksScreenState extends State<TasksScreen> {
               context: context,
               builder: (context) => AddTaskScreen(
                   (newTaskTile){
-                    setState(() {
-                      tasks.add(Task(name: newTaskTile));
-                    });
+                    // setState(() {
+                    //   tasks.add(Task(name: newTaskTile));
+                    // });
                     Navigator.pop(context);
                   }
               ),
